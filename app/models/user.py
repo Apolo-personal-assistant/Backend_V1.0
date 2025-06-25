@@ -8,3 +8,6 @@ class User(BaseModel):
     email: str
     role: str = "user"  
     created_at: Optional[datetime] = None  
+
+
+    #!
