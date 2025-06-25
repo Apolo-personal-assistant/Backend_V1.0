@@ -1,0 +1,14 @@
+# Archivos sensibles
+.env
+.env.*
+
+# Entornos virtuales
+venv/
+__pycache__/
+
+# Archivos de sistema
+.DS_Store
+
+# Archivos de compilación Python
+*.pyc
+
