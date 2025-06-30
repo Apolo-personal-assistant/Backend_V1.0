@@ -4,10 +4,7 @@ from datetime import datetime
 
 class User(BaseModel):
     _id: Optional[str] = None 
-    name: str
+    full_name: str
     email: str
-    role: str = "user"  
-    created_at: Optional[datetime] = None  
-
-
-    #!
+    role: str = "user"
+    created_at: Optional[datetime] = None

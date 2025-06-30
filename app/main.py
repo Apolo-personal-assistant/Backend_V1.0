@@ -1,8 +1,23 @@
 from fastapi import FastAPI
-from app.routers import users, meals, items, foods_catalog, goals, daily_summary, ai_logs
+from fastapi.middleware.cors import CORSMiddleware
+from app.routers import users, meals, items, foods_catalog, goals, daily_summary, ai_logs, auth
 
 app = FastAPI()
+origins = [
+    "http://localhost:5173", 
+    "http://127.0.0.1:5173",
+]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(auth.router, prefix="/auth", tags=["Auth"]) 
 app.include_router(users.router, prefix="/users", tags=["Users"])
 app.include_router(meals.router, prefix="/meals", tags=["Meals"])
 app.include_router(items.router, prefix="/items", tags=["Meal Items"])
